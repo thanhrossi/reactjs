@@ -24,6 +24,7 @@ class Content extends Component {
             trangThai : 0
         });
         console.log(this.state.trangThai);
+        console.log(this.trunggian.value);
     }
     displayCheck = () => {
         if(this.state.trangThai === 0) {
@@ -43,7 +44,7 @@ class Content extends Component {
     renderForm = () => (
         <div className="row">
             <div className="form-group">
-                <input type="text" defaultValue={this.props.title} name="ten" className="form-control" />
+                <input ref={(enterValue) => { this.trunggian = enterValue} }  type="text" defaultValue={this.props.title} name="ten" className="form-control" />
             </div>
             <div className="form-group">
                 <button className="btn btn-lock btn-danger" onClick={() => this.saveClick()}>Save</button>
