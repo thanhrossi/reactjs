@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import noiDung from './noiDung.js';
+import NoiDung from './NoiDung';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      trangthai: 'khoitao'
+      trangthai: 'khoitao',
+      trangthai2: 'khoitao2',
     }
   }
   
@@ -17,7 +18,7 @@ class App extends Component {
     console.log("Did mount");
   }
   shouldComponentUpdate(nextProps, nextState) {
-    console.log("Shout componetn update đã chạy");
+    console.log("Shout component update đã chạy");
     return true; //this is the missing piece
     
   }
@@ -31,7 +32,8 @@ class App extends Component {
   
   capNhatState = () =>{
     this.setState({
-      trangthai: "trang thai duoc update"
+      trangthai: "trang thai duoc update",
+      trangthai2: "trang thai duoc update22",
     });
   }
   
@@ -41,11 +43,11 @@ class App extends Component {
     
     return (
       <div className="App">
-        
+        <NoiDung ten={this.state.trangthai2}/>
         <button className="btn btn-ranger" onClick={() => this.capNhatState()}>
                 Update 
-                <noiDung></noiDung>
         </button>
+        
       </div>
     );
   }
